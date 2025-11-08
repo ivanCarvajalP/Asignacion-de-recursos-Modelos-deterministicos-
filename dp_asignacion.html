@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Programación Dinámica — Asignación de Recursos</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="gradient-bg"></div>
+
+  <div class="main-container">
+    <div class="dp-card">
+      <div class="header">
+        <h1 contenteditable="true" id="mainTitle">Programación Dinámica — Asignación de Recursos</h1>
+        <div class="edit-hint">✏️ Haz clic para editar</div>
+      </div>
+
+      <div class="description">
+        <div class="description-editable" contenteditable="true" id="problemDescription">
+          <p>
+            Selecciona recursos entre diferentes categorías, 
+            con <strong>al menos una unidad</strong> de cada una.  
+            Cada categoría tiene una utilidad según la cantidad de recursos asignados.  
+            El objetivo es <strong>maximizar el beneficio total</strong> usando programación dinámica.
+          </p>
+        </div>
+        <div class="edit-hint-small">✏️ Haz clic en el texto para personalizar el problema</div>
+      </div>
+
+      <div class="section">
+        <h3>Parámetros del problema</h3>
+        <div class="inputs">
+          <div class="input-group">
+            <label contenteditable="true" class="editable-label" id="labelTotal">Total de recursos</label>
+            <input id="totalSem" type="number" min="1" value="10">
+          </div>
+          <div class="input-group">
+            <label contenteditable="true" class="editable-label" id="labelDept">Número de categorías</label>
+            <input id="nDept" type="number" min="1" max="10" value="4">
+          </div>
+        </div>
+        <button id="updateTableBtn" type="button" class="generate-btn update-btn">
+          <span class="btn-icon">🔄</span>
+          <span>Actualizar Tabla</span>
+        </button>
+      </div>
+
+      <div class="section">
+        <p class="editable-text" contenteditable="true" id="tableDescription">
+          Edita los valores de utilidad (1–100) por categoría y número de recursos asignados:
+        </p>
+        <table class="dp-table" id="benefTable">
+          <thead id="benefTableHead">
+            <tr>
+              <th contenteditable="true" class="editable-header" id="tableHeader">Categoría</th>
+            </tr>
+          </thead>
+          <tbody id="benefTableBody">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <button id="calcBtn" class="generate-btn">
+          <span class="btn-icon">⚡</span>
+          <span>Calcular solución</span>
+        </button>
+        <button id="resetBtn" class="reset-btn">
+          <span class="btn-icon">↺</span>
+          <span>Restaurar valores</span>
+        </button>
+      </div>
+
+      <div id="dpError" class="error"></div>
+
+      <div id="resultsSection" class="results">
+        <h3>Resultado óptimo</h3>
+        <div id="summary"></div>
+        <div id="allocation" class="probability-grid"></div>
+        <button id="showProcessBtn" class="process-btn" style="display: none;">
+          <span class="btn-icon">📊</span>
+          <span>Ver proceso detallado</span>
+        </button>
+        <div id="processSection" class="process-section" style="display: none;">
+          <h4>Proceso de resolución paso a paso</h4>
+          <div id="processContent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="dp_asignacion.js"></script>
+</body>
+</html>
